@@ -1,12 +1,11 @@
 import { Inter } from "next/font/google";
+import "@/styles/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "block",
   preload: true,
 });
-
-import "@/styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
