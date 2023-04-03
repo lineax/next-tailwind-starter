@@ -1,13 +1,16 @@
-import { Inter } from "next/font/google";
-import "@/styles/globals.css";
+import type { AppProps } from "next/app"
+import { Inter } from "next/font/google"
+import { ThemeProvider } from "next-themes"
+
+import "@/styles/globals.css"
 
 const inter = Inter({
   subsets: ["latin"],
   display: "block",
   preload: true,
-});
+})
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <style jsx global>{`
@@ -16,9 +19,9 @@ function MyApp({ Component, pageProps }) {
         }
       `}</style>
 
-      <Component {...pageProps} />
+      <ThemeProvider defaultTheme="system" enableSystem>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
-  );
+  )
 }
-
-export default MyApp;
